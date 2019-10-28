@@ -1,0 +1,24 @@
+@import "var";
+@import "mixin";
+ul{
+  width: 300px;
+  height: 300px;
+  li{
+    width: $height;
+    span{
+      color: antiquewhite;
+      float: left;
+    }
+    span{
+      color: beige;
+      float: right;
+    }
+  }
+}
+
+.box{
+  width:$width ;
+  height: $height;
+  background: $color;
+  @include horizontalCenter;
+}

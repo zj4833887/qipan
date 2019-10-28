@@ -1,0 +1,45 @@
+@import "var";
+@import "mixin";
+.loading {
+  width: $width;
+  height: $width;
+  background: black;
+  @include positionHorVerCenter ;
+  @for $i from 1 through $num {
+    &-box {
+      @include percentage;
+      position: absolute;
+      left: 0;
+      right: 0;
+      @include percentage;
+
+      > .loading-box-circle {
+        width: 20px;
+        height: 20px;
+        background: $color;
+        border-radius: 50%;
+        animation: toggle 1s infinite ease;
+        @include horizontalCenter;
+      }
+    }
+  }
+}
+  @for $i from 1 through $num {
+    .loading > .loading-box:nth-child(#{$i}) {
+      transform: rotateZ(#{$i*$deg}deg);
+      > .loading-box-circle {
+        animation-delay: $i *40ms;
+      }
+    }
+  }
+
+@keyframes toggle {
+  from{
+    opacity: 0;
+    transform: scale(0,0);
+  }
+  to{
+    opacity: 1;
+    transform: scale(1.5,1.5);
+  }
+}

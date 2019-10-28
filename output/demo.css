@@ -1,0 +1,18 @@
+ul {
+  width: 300px;
+  height: 300px; }
+  ul li {
+    width: 250px; }
+    ul li span {
+      color: antiquewhite;
+      float: left; }
+    ul li span {
+      color: beige;
+      float: right; }
+
+.box {
+  width: 400px;
+  height: 250px;
+  background: #ffffff;
+  margin-left: auto;
+  margin-right: auto; }

@@ -1,0 +1,10 @@
+$color:blue;
+$width:400px;
+$height:300px;
+//node-sass inpus.scss output.css
+// node-sass --output-style xxx output.css
+.box{
+  width:$width ;
+  height: $height;
+  background: $color;
+}

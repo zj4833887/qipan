@@ -1,0 +1,49 @@
+@import "var";
+@import "mixin";
+$width:$radius*$num*2;
+$height:$radius*$num*2;
+.gobing{
+  width: $width;
+  height: $height;
+  @include positionHorVerCenter ;
+  >.tran{
+    width: $width - $radius*2;
+    height: 1px;
+    left: $radius;
+    background: black;
+    position: absolute;
+    transform: translateX(-2000px);
+    animation: fly 1s linear  forwards;
+  }
+  >.list{
+    width: 1px;
+    height:$height - $radius*2 ;
+    background: black;
+    position: absolute;
+    top: $radius;
+    transform: translateY(-2000px);
+    animation: fly 1s  linear  forwards;
+  }
+  @for $i from 1 through $num {
+   >.tran:nth-of-type(#{$i}){
+     top:(2*$i - 1)*$radius;
+     animation-delay: $i*66.7ms;
+   }
+    >.list:nth-of-type(#{$i}){
+      left:(2*$i - 1)*$radius;
+      animation-delay: $i*66.7ms;
+    }
+  }
+}
+@keyframes fly {
+  from{
+    transform: translateX(-2000px);
+    transform: translateY(-2000px);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
